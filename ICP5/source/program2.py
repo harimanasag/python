@@ -54,6 +54,7 @@ def Apply_Kmeans(X, K, N):
     return
 
 def plot_cluster(mu,cluster, itr):
+	#color allocated for clusters
     color = 10 * ['r.','g.','k.','c.','b.','m.']
     print('Iteration number : ',itr)
     for l in cluster.keys():
@@ -63,6 +64,7 @@ def plot_cluster(mu,cluster, itr):
     plt.show()
 
 def init_graph(N, p1, p2):
+	#array to choose random values
     X = np.array([(random.choice(p1),random.choice(p2))for i in range(N)])
     return X
 
@@ -71,12 +73,15 @@ def Simulate_Clusters():
     print(".........Starting Cluster Simulation.........")
     K = int(input('Enter the number of Clusters.......'))
     print('Now Enter the bounds for choosing uniform value....\n')
+	#width of the T-shirt sizes
     p1 = np.array([32,33,36,40,39,31,35.5,30.3,34.3,32.7,39.8,37.2,31.4,38.8,32.6,34.7,35.1,37.5,36.2,39.8])
-    p2 = np.array([20,25,32,26,24,29])
+	#height of the person
+    p2 = np.array([5.4,5.6,5.8,5.10,6,6.2])
     X = init_graph(len(p1), p2, p1)
     plt.scatter(X[:, 0], X[:, 1])
     plt.show()
-    temp = Apply_Kmeans(X, K, len(X))
+	#calling K-means algorithm
+    Apply_Kmeans(X, K, len(X))
 
 
 if __name__ == '__main__':
