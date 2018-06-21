@@ -19,7 +19,7 @@ class Employee:
 
 
 class FullTimeEmployee(Employee):
-
+	
     def __init__(self, empdictionary):
         Employee.__init__(self, empdictionary)
 
